@@ -10,3 +10,8 @@ bioc_packages:
 
 after_script:
   - Rscript -e 'covr::codecov()'
+
+addons:
+  apt:
+    packages:
+      - libfftw3-dev  ## Needed by Bioc package fftwtools
