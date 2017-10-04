@@ -4,3 +4,9 @@ language: R
 sudo: false
 cache: packages
 bioc_required: true
+
+bioc_packages:
+  - EBImage
+
+after_script:
+  - Rscript -e 'covr::codecov()'
