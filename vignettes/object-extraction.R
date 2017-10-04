@@ -99,7 +99,7 @@ right_img <- img_crop[backward_ind,]
 EBImage::display(normalize(left_img), method="raster", interpolate=F)
 EBImage::display(normalize(right_img), method="raster", interpolate=F)
 
-## ----active_contor_object_profile_image_split_overlay--------------------
+## ----profile_image_split_overlay-----------------------------------------
 left_img <- flop(left_img)
 
 segmented <- paintObjects(left_img,toRGB(right_img), col='#ff00ff')
@@ -113,7 +113,7 @@ deviance <- sd(c_left - c_right)/length(c_left)
 thresh <- 0.02
 deviance < thresh
 
-## ----active_contor_object_profile_contour_mean, fig.show='hold'----------
+## ----profile_contour_mean, fig.show='hold'-------------------------------
 c_mean <- round(apply(cbind(c_left, c_right),1,mean))
 
 mean_profile <- profile_to_image(c_mean,dim(left_img)[1])
@@ -127,7 +127,7 @@ EBImage::display(segmented, method="raster", interpolate=F)
 
 EBImage::display(mean_profile, method="raster", interpolate=F)
 
-## ----active_contor_object_final proof, fig.show='hold'-------------------
+## ----final_proof, fig.show='hold'----------------------------------------
 full_profile <- EBImage::tile(EBImage::combine(mean_profile, flop(mean_profile)), nx=2, lwd=0)
 full_profile <- EBImage::rotate(full_profile,angle = -1 * moment)
 full_profile <- resize(full_profile, w = nrow(full_profile), h = ncol(full_profile), output.dim = dim(bw_image))

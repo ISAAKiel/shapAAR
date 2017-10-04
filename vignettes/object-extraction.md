@@ -223,7 +223,7 @@ segmented <- paintObjects(left_img,toRGB(right_img), col='#ff00ff')
 EBImage::display(segmented, method="raster", interpolate=F)
 ```
 
-![](object-extraction_files/figure-html/active_contor_object_profile_image_split_overlay-1.png)<!-- -->
+![](object-extraction_files/figure-html/profile_image_split_overlay-1.png)<!-- -->
 
 Not to bad in general. Let extract the contours and check whether or not they do deviate more than a given threshold:
 
@@ -259,7 +259,7 @@ EBImage::display(segmented, method="raster", interpolate=F)
 EBImage::display(mean_profile, method="raster", interpolate=F)
 ```
 
-![](object-extraction_files/figure-html/active_contor_object_profile_contour_mean-1.png)![](object-extraction_files/figure-html/active_contor_object_profile_contour_mean-2.png)
+![](object-extraction_files/figure-html/profile_contour_mean-1.png)![](object-extraction_files/figure-html/profile_contour_mean-2.png)
 
 With that we have the profile of the vessel extracted, so that we can use if in further multivariate analysis.
 
@@ -274,6 +274,6 @@ segmented <- paintObjects(full_profile,toRGB(bw_image), col='#ff0000')
 EBImage::display(segmented, method="raster", interpolate=F)
 ```
 
-![](object-extraction_files/figure-html/active_contor_object_final proof-1.png)<!-- -->
+![](object-extraction_files/figure-html/final_proof-1.png)<!-- -->
 
 ## References
