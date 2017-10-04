@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 
 [![Travis-CI Build Status](https://travis-ci.org/MartinHinz/shapAAR.svg?branch=master)](https://travis-ci.org/MartinHinz/shapAAR)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/shapAAR)](https://cran.r-project.org/package=shapAAR)
+[![Coverage Status](https://img.shields.io/codecov/c/github/MartinHinz/shapAAR/master.svg)](https://codecov.io/github/MartinHinz/shapAAR?branch=master)
 
 The goal of shapAAR is to ...
 
