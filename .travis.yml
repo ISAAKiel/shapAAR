@@ -8,10 +8,13 @@ bioc_required: true
 bioc_packages:
   - EBImage
 
-after_script:
-  - Rscript -e 'covr::codecov()'
-
 addons:
   apt:
     packages:
       - libfftw3-dev  ## Needed by Bioc package fftwtools
+
+r_packages:
+  - covr
+
+after_success:
+  - Rscript -e 'library(covr); codecov()'
