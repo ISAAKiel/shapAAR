@@ -2,6 +2,7 @@
 
 export(active_contour)
 export(add_canvas)
+export(bulkIMGprep)
 export(contour_vector_bg)
 export(contour_vector_fg)
 export(crop_bottom)
