@@ -32,7 +32,7 @@ get_bottom_points <- function(x) {
     q_l_l <- flip(flop(x[1:(nrow(x) %/% 2), (ncol(x) %/% 2):ncol(x)]))
     p_l <- ncol(x) - get_corner(q_l_l)
 
-    q_l_r <- flip(x[(nrow(x) %/% 2):nrow(x), 1:(ncol(x) %/% 2)])
+    q_l_r <- flip(x[(nrow(x) %/% 2):nrow(x), (ncol(x) %/% 2):ncol(x)])
     p_r <- ncol(x) - get_corner(q_l_r)
 
     return(c(p_l, p_r))
@@ -45,7 +45,7 @@ get_bottom_points <- function(x) {
 #' @export
 
 get_top_points <- function(x) {
-    q_u_l <- flop(x[1:(nrow(x) %/% 2), 1:(nrow(x) %/% 2)])
+    q_u_l <- flop(x[1:(nrow(x) %/% 2), 1:(ncol(x) %/% 2)])
     p_l <- get_corner(q_u_l)
 
     q_u_r <- x[(nrow(x) %/% 2):nrow(x), 1:(ncol(x) %/% 2)]
@@ -64,6 +64,30 @@ get_corner <- function(x) {
     contour <- contour[contour <= contour[1]]
 
     c_points <- cbind(contour, 1:(length(contour)))
+
+    ##  chull() produces an error when fed Inf-Values, which happens a lot
+    ##  when the images cannot be properly rotated due to some noise around the drawings
+    ##  I would propose this as a workaround:
+    #
+    #    if (any(is.infinite(c_points)) == TRUE) {
+    #      infvalues <- c_points[is.infinite(c_points[, 1]), ]
+    #      if (length(nrow(infvalues)) == 0){
+    #        infdiff <- (diff(c_points[(match(FALSE, is.infinite(c_points)) + 1):match(FALSE, is.infinite(c_points)), 1]) %/% 1)
+    #        c_points[which(is.infinite(c_points)), 1] <- (c_points[match(FALSE, is.infinite(c_points)), 1] + infdiff)
+    #      } else {
+    #        for (i in nrow(infvalues):1) {
+    #          print(i)
+    #          infdiff <- (diff(c_points[(i+2):(i + 1), 1]) * 4)
+    #          c_points[i, 1] <- (c_points[(i + 1), 1] + infdiff)
+    #        }
+    #      }
+    #    }
+    #
+    ## But since it might actually produce other problems, and I have a feeling it's a
+    ## rather inelegant solution, I commented it. I hope you do not mind. Anyway, it seems
+    ## to work for me so far, but I have not tried it with many images.
+
+
 
     ind <- chull(c_points)
     c_points <- c_points[ind, ]
