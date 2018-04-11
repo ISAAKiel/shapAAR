@@ -20,9 +20,13 @@ contour_vector_fg <- function(x) {
 contour_vector_bg <- function(x) {
     x <- x[nrow(x):1, ]
     x <- add_canvas(x, 1, 0, col = "black")
-    apply(x, 2, function(x) {
+    all_black <- apply(x,2,function(z) !any(z==1))
+    out <- integer(length = ncol(x))
+    out[!all_black] <- apply(x[,!all_black], 2, function(x) {
         min(which(x != 0)) - 1
     })
+    out[all_black] <- nrow(x)
+    return(out)
 }
 #' Turns a contour into an image again
 #'

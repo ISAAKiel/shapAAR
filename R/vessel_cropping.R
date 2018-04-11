@@ -65,31 +65,6 @@ get_corner <- function(x) {
 
     c_points <- cbind(contour, 1:(length(contour)))
 
-    ##  chull() produces an error when fed Inf-Values, which happens a lot
-    ##  when the images cannot be properly rotated due to some noise around the drawings
-    ##  I would propose this as a workaround:
-    #
-        if (any(is.infinite(c_points)) == TRUE) {
-          infvalues <- c_points[is.infinite(c_points[, 1]), ]
-          if (length(nrow(infvalues)) == 0){
-            infdiff <- (diff(c_points[(match(FALSE, is.infinite(c_points)) + 1):match(FALSE, is.infinite(c_points)), 1]) %/% 1)
-            c_points[which(is.infinite(c_points)), 1] <- (c_points[match(FALSE, is.infinite(c_points)), 1] + infdiff)
-          } else {
-            for (i in nrow(infvalues):1) {
-              print(i)
-              infdiff <- (diff(c_points[(i+2):(i + 1), 1]) * 4)
-              c_points[i, 1] <- (c_points[(i + 1), 1] + infdiff)
-            }
-          }
-        }
-    
-    ## But since it might actually produce other problems, and I have a feeling it's a
-    ## rather inelegant solution, I commented it. I hope you do not mind. Anyway, it seems
-    ## to work for me so far, but I have not tried it with many images. (Build does not work
-    ## without this fix because the image used in the vignette seems so have the same problem...)
-
-
-
     ind <- chull(c_points)
     c_points <- c_points[ind, ]
     ind_first_point <- which(c_points[, 2] == 1)
