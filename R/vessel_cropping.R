@@ -32,7 +32,7 @@ get_bottom_points <- function(x) {
     q_l_l <- flip(flop(x[1:(nrow(x) %/% 2), (ncol(x) %/% 2):ncol(x)]))
     p_l <- ncol(x) - get_corner(q_l_l)
 
-    q_l_r <- flip(x[(nrow(x) %/% 2):nrow(x), 1:(ncol(x) %/% 2)])
+    q_l_r <- flip(x[(nrow(x) %/% 2):nrow(x), (ncol(x) %/% 2):ncol(x)])
     p_r <- ncol(x) - get_corner(q_l_r)
 
     return(c(p_l, p_r))
@@ -45,7 +45,7 @@ get_bottom_points <- function(x) {
 #' @export
 
 get_top_points <- function(x) {
-    q_u_l <- flop(x[1:(nrow(x) %/% 2), 1:(nrow(x) %/% 2)])
+    q_u_l <- flop(x[1:(nrow(x) %/% 2), 1:(ncol(x) %/% 2)])
     p_l <- get_corner(q_u_l)
 
     q_u_r <- x[(nrow(x) %/% 2):nrow(x), 1:(ncol(x) %/% 2)]
