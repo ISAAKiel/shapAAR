@@ -31,12 +31,12 @@ add_canvas <- function(x, nrows, ncols, center = T, col = "white") {
 #' @return the cropped image
 #' @export
 
-img_crop_backgroud <- function(x, bg = 0) {
+img_crop_background <- function(x, bg = 0) {
     x_range <- range(which(apply(x, 1, function(x) {
-        !(all(x == 0))
+        !(all(x == bg))
     })))
     y_range <- range(which(apply(x, 2, function(x) {
-        !(all(x == 0))
+        !(all(x == bg))
     })))
     cropped_img <- x[x_range[1]:x_range[2], y_range[1]:y_range[2]]
     cropped_img

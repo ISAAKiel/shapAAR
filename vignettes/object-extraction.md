@@ -155,7 +155,7 @@ Nice. Now the object is surrounded by empty space, and also the orientation is s
 
 
 ```r
-img_biggest_only <- img_crop_backgroud(img_biggest_only)
+img_biggest_only <- img_crop_background(img_biggest_only)
 EBImage::display(img_biggest_only, method="raster", interpolate=F)
 ```
 
@@ -173,7 +173,7 @@ moment <- 90 -minbbox$angle
 if (abs(moment)>45) {moment = moment - sign(moment)*90}
 img_rect <- EBImage::rotate(img_biggest_only, moment, bg.col="black")
 img_rect <- img_rect > otsu(img_rect)
-img_rect <-img_crop_backgroud(img_rect)
+img_rect <-img_crop_background(img_rect)
 
 EBImage::display(img_rect, method="raster", interpolate=F)
 ```

@@ -64,7 +64,7 @@ img_biggest_only <- rmObjects(labelled_img,all_objects[all_objects!=biggest_obje
 EBImage::display(normalize(img_biggest_only), method="raster", interpolate=F)
 
 ## ----active_contor_object_crop-------------------------------------------
-img_biggest_only <- img_crop_backgroud(img_biggest_only)
+img_biggest_only <- img_crop_background(img_biggest_only)
 EBImage::display(img_biggest_only, method="raster", interpolate=F)
 
 ## ----active_contor_object_rotation, fig.show='hold'----------------------
@@ -76,7 +76,7 @@ moment <- 90 -minbbox$angle
 if (abs(moment)>45) {moment = moment - sign(moment)*90}
 img_rect <- EBImage::rotate(img_biggest_only, moment, bg.col="black")
 img_rect <- img_rect > otsu(img_rect)
-img_rect <-img_crop_backgroud(img_rect)
+img_rect <-img_crop_background(img_rect)
 
 EBImage::display(img_rect, method="raster", interpolate=F)
 
