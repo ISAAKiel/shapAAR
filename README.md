@@ -2,7 +2,7 @@
 shapAAR
 =======
 
-[![Travis-CI Build Status](https://travis-ci.org/ISAAKiel/shapAAR.svg?branch=master)](https://travis-ci.org/ISAAKiel/shapAAR) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/shapAAR)](https://cran.r-project.org/package=shapAAR) [![Coverage Status](https://img.shields.io/codecov/c/github/ISAAKiel/shapAAR/master.svg)](https://codecov.io/github/ISAAKiel/shapAAR?branch=master)
+[![Travis-CI Build Status](https://travis-ci.org/ISAAKiel/shapAAR.svg?branch=master)](https://travis-ci.org/ISAAKiel/shapAAR) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/shapAAR)](https://cran.r-project.org/package=shapAAR) [![Coverage Status](https://img.shields.io/codecov/c/github/ISAAKiel/shapAAR/master.svg)](https://codecov.io/github/ISAAKiel/shapAAR?branch=master) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 This is an R package for the extraction, analysis and classification of (not only) archaeological objects derived from scanned images. Especially it aims at the analysis of the shapes/profiles of eg. ceramic vessels or arrow heads.
 
